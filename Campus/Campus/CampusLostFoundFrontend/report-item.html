@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Report Item</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+<div class="row justify-content-center">
+
+<div class="col-md-8">
+
+<div class="card shadow p-4">
+
+<h2 class="text-center mb-4">
+
+Report Found Item
+
+</h2>
+
+<form id="itemForm">
+
+    <div class="mb-3">
+        <label class="form-label">Item Name</label>
+        <input
+            type="text"
+            id="itemName"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+
+        <select
+            id="category"
+            class="form-select"
+            required>
+
+            <option value="">Select Category</option>
+
+            <option>Electronics</option>
+            <option>Wallet / Purse</option>
+            <option>Bag</option>
+            <option>Documents</option>
+            <option>Keys</option>
+            <option>Books</option>
+            <option>Jewellery</option>
+            <option>Water Bottle</option>
+            <option>ID card</option>
+            <option>Other</option>
+
+        </select>
+    </div>
+
+    <div
+        id="otherCategoryDiv"
+        class="mb-3"
+        style="display:none;">
+
+        <label class="form-label">
+            Specify Category
+        </label>
+
+        <input
+            type="text"
+            id="otherCategory"
+            class="form-control">
+
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Found Location
+        </label>
+
+        <input
+            type="text"
+            id="location"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">
+            Found Date
+        </label>
+
+        <input
+            type="date"
+            id="date"
+            class="form-control"
+            required>
+    </div>
+
+    <hr>
+
+    <h5>Verification Questions</h5>
+    <p class="text-muted mb-3">
+       Create 3 questions that only the real owner can answer correctly.
+   </p>
+
+    <div class="mb-3">
+        <label> Verification Question 1</label>
+        <input
+            type="text"
+            id="question1"
+            class="form-control"
+            placeholder="Example: What is the colour of the bag?"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label>Correct Answer 1</label>
+        <input
+            type="text"
+            id="answer1"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label>Verification Question 2</label>
+        <input
+            type="text"
+            id="question2"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label>Correct Answer 2</label>
+        <input
+            type="text"
+            id="answer2"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label>Verification Question 3</label>
+        <input
+            type="text"
+            id="question3"
+            class="form-control"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label>Correct Answer 3</label>
+        <input
+            type="text"
+            id="answer3"
+            class="form-control"
+            required>
+    </div>
+
+    <hr>
+
+    <div class="mb-3">
+
+        <label class="form-label">
+            Given to Admin?
+        </label>
+
+        <select
+            id="givenToAdmin"
+            class="form-select">
+
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+
+        </select>
+
+    </div>
+
+    <div
+        id="adminSection"
+        style="display:none;">
+
+        <div class="mb-3">
+
+            <label>Given Date</label>
+
+            <input
+                type="date"
+                id="givenDate"
+                class="form-control">
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Given Time</label>
+
+            <input
+                type="time"
+                id="givenTime"
+                class="form-control">
+
+        </div>
+
+    </div>
+
+    <button class="btn btn-primary w-100">
+
+        Submit
+
+    </button>
+
+</form>
+
+<div id="message" class="mt-3"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("category").addEventListener("change",function(){
+
+    if(this.value==="Other"){
+
+        document.getElementById("otherCategoryDiv").style.display="block";
+
+    }else{
+
+        document.getElementById("otherCategoryDiv").style.display="none";
+
+    }
+
+});
+
+document.getElementById("givenToAdmin").addEventListener("change",function(){
+
+    if(this.value==="true"){
+
+        document.getElementById("adminSection").style.display="block";
+
+    }else{
+
+        document.getElementById("adminSection").style.display="none";
+
+    }
+
+});
+
+</script>
+<script src="js/report.js"></script>
+
+</body>
+</html>
